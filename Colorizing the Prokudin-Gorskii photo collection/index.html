@@ -6,7 +6,9 @@
 
         To create the most accurate result, we first need to properly align the red, green and blue channels. This is the core of the project. My approach is using the simple Sum of Squared Differences (SSD) metric to measure the difference between two channels in order to find the best alignment. Since the many of the images are very large, I also added a image pyramid to speed up the alignment process. Basically, I created copies of the original image to be aligned and scale them by factor of powers of 2, then start from the coarest scale to get a rough estimate, then as it goes down the image pyramid, it updates the alignment offset for the larger image, eventually arrives at the original image.
 
-        We could see that the photo "harvesters" doesn't have the best result, since two people in the background are blurred, but that's an unavoidable result since these two people are out of place in the orginal channels compare to everything else, so in order to correctly align everthing, we have to sacrifice the clarity of these two people.
+        During the alignment process, one problem that I encountered was that the result wasn't that good if I crop the photos before rolling them, after fixing that the results are a bit better.
+		
+	We could see that the photo "harvesters" doesn't have the best result, since two people in the background are blurred, but that's an unavoidable result since these two people are out of place in the orginal channels compare to everything else, so in order to correctly align everthing, we have to sacrifice the clarity of these two people.
 
         The following are some of the recovered photos:
 
